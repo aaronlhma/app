@@ -4,8 +4,8 @@
     <ul class="list-group">
         <% expenses.forEach(function (expenseItem) { %>
             <li class="list-group-item">
-                <strong><%= expenseItem.date %> </strong>
-                <%= expenseItem.transaction %>
+                <!-- <strong><%= expenseItem.date %> </strong> -->
+                <%= expenseItem.item %>
                     <% if ((!expenseItem.cost) || (!isNaN(parseFloat(expenseItem.cost)))) { %>
                         $
                         <%= expenseItem.cost %>
