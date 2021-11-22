@@ -76,18 +76,43 @@ let expenseController = {
         // let searchResult = req.user.expenses.find(function(expenses) {
         //     return expenses.id == expenseToFind;
         // });
-        res.render("expense/edit", { expenseItem: static_list[0] });
+        sql = `
+        SELECT * from expenses WHERE id = ${req.params.id}
+        `
+        con.query(sql, function(err,result) {
+            if(err) throw err;
+            console.log(result)
+            res.render("expense/edit",{ expenseItem: result[0] });
+        })
     },
+
     delete: async(req, res) => {
-        // let findId = req.params.id
-        // let indexNum = req.user.expenses.findIndex(i => i.id == findId)
-        // req.user.expenses.splice(indexNum, 1)
-        res.redirect("/expenses")
+        sql = `
+        DELETE FROM expenses WHERE id = ${req.params.id}
+        `
+        con.query(sql, function(err,result) {
+            if(err) throw err;
+            console.log(result)
+            res.redirect("/expenses");
+        })
+
     },
 
     update: async(req, res) => {
-
-        res.redirect("/expenses");
+        sql = `
+        UPDATE expenses
+        SET 
+            item = '${req.body.transaction}',
+            price = ${req.body.cost},
+            tags = '${req.body.tags}'
+        WHERE
+            id = ${req.params.id}
+        `
+        con.query(sql, function(err,result) {
+            if(err) throw err;
+            console.log(result)
+            res.redirect('/expenses');
+        })
     },
 
 };

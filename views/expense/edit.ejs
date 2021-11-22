@@ -16,17 +16,17 @@
     
     let today = yyyy+'-'+mm+'-'+dd +hr+':'+min;
     %>
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label for="datetime">Date of Transaction</label>
                 <input type="date" id="notify-date" name="datetime" value="<%= expenseItem.date %>" min="<%= today %>">
-            </div>
+            </div> -->
             <div class="form-group">
                 <label for="description">Transaction Description</label>
-                <textarea class="form-control" id="descriptionInput" rows="3" placeholder="Enter the Transaction Description" name="transaction"><%= expenseItem.transaction %></textarea>
+                <textarea class="form-control" id="descriptionInput" rows="3" placeholder="Enter the Transaction Description" name="transaction"><%= expenseItem.item %></textarea>
             </div>
             <div class="form-group">
                 <label for="cost">Cost of Expense</label>
-                <input type="text" name="cost" value="<%= expenseItem.cost %>">
+                <input type="text" name="cost" value="<%= expenseItem.price %>">
             </div>
             <div class="form-group">
                 <label>Tags :</label>
