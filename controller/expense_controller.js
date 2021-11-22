@@ -61,8 +61,8 @@ let expenseController = {
     create: async(req, res) => {
 
         sql = `
-        INSERT INTO expenses
-        VALUES(${req.body.transaction},${req.body.cost},${req.body.tags},${req.user.id})
+        INSERT INTO expenses(item,date,price,tags,user)
+        VALUES('${req.body.transaction}',now(),${req.body.cost},'${req.body.tags}','${req.user.id}')
         `
         con.query(sql, function(err,result) {
             if(err) throw err;
