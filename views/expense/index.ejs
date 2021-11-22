@@ -6,9 +6,9 @@
             <li class="list-group-item">
                 <!-- <strong><%= expenseItem.date %> </strong> -->
                 <%= expenseItem.item %>
-                    <% if ((!expenseItem.cost) || (!isNaN(parseFloat(expenseItem.cost)))) { %>
+                    <% if ((!expenseItem.price) || (!isNaN(parseFloat(expenseItem.price)))) { %>
                         $
-                        <%= expenseItem.cost %>
+                        <%= expenseItem.price %>
                             <% } else { %>
                                 No price set
                                 <% } %>
