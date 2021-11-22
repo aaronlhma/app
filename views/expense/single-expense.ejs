@@ -4,14 +4,14 @@
     <ul class="list-group">
         <li class="list-group-item">
             <h4>
-                <%= expenseItem.transaction %>
+                <%= expenseItem.item %>
             </h4>
             <h4>
-                <% if ((!expenseItem.cost) && (!isNaN(parseFloat(expenseItem.cost)))) { %>
+                <% if ((!expenseItem.price) && (!isNaN(parseFloat(expenseItem.price)))) { %>
                     No price set
                     <% } else { %>
                         $
-                        <%= expenseItem.cost %>
+                        <%= expenseItem.price %>
                             <% } %>
             </h4>
             <a class="btn btn-warning" href=<%="/expense/" + expenseItem.id + "/edit" %>>Edit</a>
